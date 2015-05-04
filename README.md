@@ -48,6 +48,7 @@ Please choose one of the projects below.
 - Implement album's **ranking system** (e.g. vote from 1 to 10 or like / dislike).
 - Show the most **highly ranked** albums in a special section at the main page.
 - Use a **database** (like MySQL or MongoDB) or cloud-based data storage (like MongoLab and RedisLab). 
-Optional functionalities:
+
+**Optional** functionalities:
 - Functionality for **searching** by album name / category.
 - **Admin panel** (if registration is implemented): add / edit /delete albums, photos, comments.
