@@ -15,10 +15,18 @@ body>footer {
     text-align: center;
 }
 
-li.info {
+.info {
     background: #7f7;
 }
 
-li.error {
+.error {
     background: #f77;
+}
+
+#logged-in-info {
+    float: right;
+}
+
+#logged-in-info form {
+    display: inline-block;
 }

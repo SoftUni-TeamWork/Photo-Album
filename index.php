@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 
 session_start();
 
@@ -16,6 +17,8 @@ if (count($requestParts) >= 3 && $requestParts[2] != '') {
     $action = $requestParts[2];
 }
 
+$action = str_replace('-', '', $action);
+
 $params = array_splice($requestParts, 3);
 
 $controllerClassName = ucfirst(strtolower($controllerName)) . 'Controller';
@@ -32,9 +35,6 @@ if (method_exists($controller, $action)) {
 } else {
     die("Cannot find action '$action' in controller '$controllerClassName'");
 }
-
-
-
 
 function __autoload($class_name) {
     if (file_exists("controllers/$class_name.php")) {

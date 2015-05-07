@@ -21,6 +21,7 @@ class AccountController extends BaseController {
             $isRegistered = $this->db->register($username, $password);
 
             if ($isRegistered) {
+                $_SESSION['username'] = $username;
                 $this->redirect('books', 'index');
             } else {
                 $this->addErrorMessage('Register failed.');
@@ -38,6 +39,7 @@ class AccountController extends BaseController {
             $isLoggedIn = $this->db->login($username, $password);
 
             if($isLoggedIn) {
+                $_SESSION['username'] = $username;
                 $this->addInfoMessage('Successful login');
                 $this->redirect('books', 'index');
             } else {
@@ -50,6 +52,8 @@ class AccountController extends BaseController {
     }
 
     public function logout() {
-
+        unset($_SESSION['username']);
+        $this->addInfoMessage('Successfully logout');
+        $this->redirectToUrl('/');
     }
 }
