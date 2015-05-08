@@ -11,7 +11,7 @@ class AccountController extends BaseController {
         if ($this->isPost) {
             $username = $_POST['username'];
 
-            if(!$username || length < 3) {
+            if(!$username || mb_strlen($username) < 3) {
                 $this->addErrorMessage('Username is invalid');
                 $this->redirect('account', 'register');
             }
@@ -22,7 +22,7 @@ class AccountController extends BaseController {
 
             if ($isRegistered) {
                 $_SESSION['username'] = $username;
-                $this->redirect('books', 'index');
+                $this->redirectToUrl('/');
             } else {
                 $this->addErrorMessage('Register failed.');
             }

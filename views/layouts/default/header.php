@@ -10,12 +10,12 @@
 
 <body>
 <header>
-    <a href="/"><img src="/content/images/site-logo.png"></a>
+    <!--<a href="/"><img src="/content/images/site-logo.png"></a>-->
     <ul>
         <li><a href="/">Home</a></li>
         <?php if($this->isLoggedIn): ?>
-        <li><a href="/authors">Authors</a></li>
-        <li><a href="/books">Books</a></li>
+        <li><a href="/albums/me">My albums</a></li>
+        <!--<li><a href="/books">Books</a></li>-->
         <?php endif; ?>
     </ul>
 

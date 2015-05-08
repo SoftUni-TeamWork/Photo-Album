@@ -1,0 +1,1 @@
+<h1>Create new album</h1>
