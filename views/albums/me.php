@@ -3,11 +3,11 @@
     <a href="/albums/create">Create new album</a>
     <?php
         $albumsCount = count($this->albums);
-        for($i = 0; $i < $albumsCount; $i += 6):
+        for($i = 0; $i < $albumsCount; $i += MAX_ALBUMS_PER_ROW):
     ?>
         <div class="row">
     <?php
-        $columnsCount = $albumsCount - $i < 6 ? $albumsCount: 6 + $i;
+        $columnsCount = $albumsCount - $i < MAX_ALBUMS_PER_ROW ? $albumsCount: MAX_ALBUMS_PER_ROW + $i;
 
         for($j = $i; $j < $columnsCount; $j++):
             $album = $this->albums[$j];

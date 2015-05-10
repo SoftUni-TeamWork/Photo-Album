@@ -27,5 +27,20 @@ class AlbumsModel extends BaseModel {
         $createAlbumStatement = self::$db->prepare('INSERT INTO albums (name, user_id) VALUES (?, ?)');
         $createAlbumStatement->bind_param('si', $name,$userId);
         $createAlbumStatement->execute();
+
+        $albumId = $createAlbumStatement->insert_id;
+
+        $createPhotoStatement = self::$db->prepare('INSERT INTO photos (user_id, image_path, album_id) VALUES (?, ?, ?)');
+        $createPhotoStatement->bind_param('isi', $userId, $photoPath, $albumId);
+
+        self::$db->query('START TRANSACTION');
+
+        foreach ($photosPaths as $photoPath) {
+            $createAlbumStatement->execute();
+        }
+
+        self::$db->query('Commit');
+
+        return $albumId;
     }
 }

@@ -44,9 +44,9 @@ class AlbumsController extends BaseController {
                 $photosPaths[] = $photoPath;
             }
 
-            $this->db->createUserAlbum($_SESSION['username'], $albumName, $photosPaths);
+            $albumId = $this->db->createUserAlbum($_SESSION['username'], $albumName, $photosPaths);
 
-//            $this->redirect('albums', 'me');
+            $this->redirectToUrl('/albums/show-album/' . $albumId);
         }
 
         $this->renderView(__FUNCTION__);

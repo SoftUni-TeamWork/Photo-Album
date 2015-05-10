@@ -10,3 +10,4 @@ define('DB_PASS', 'root');
 define('DB_NAME', 'photo_album');
 
 define('ALBUMS_IMAGES_LOCATION', realpath('albums-images'));
+define('MAX_ALBUMS_PER_ROW', 6);
