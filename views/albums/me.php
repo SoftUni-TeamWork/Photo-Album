@@ -19,7 +19,7 @@
                         <h2><?= htmlspecialchars($album['name']) ?></h2>
                     <?php endif; ?>
                     <p>Author: <em><?=  htmlspecialchars($album['author']) ?></em></p>
-                    <time><?= htmlspecialchars($album['author']) ?></time>
+                    <time><?= htmlspecialchars($album['date_created']) ?></time>
                 </a>
             </div>
     <?php endfor; ?>
